@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "JackCompiler": {
+      "commandName": "Project",
+      "commandLineArgs": "D:\\Code\\jack-analyzer\\JackAnalyzer.Test\\Files\\HelloWorld\\Main.jack"
+    }
+  }
+}
