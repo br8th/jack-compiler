@@ -1,62 +1,183 @@
-﻿namespace JackCompiler
+﻿using static JackCompiler.SymbolTable;
+
+namespace JackCompiler
 {
-    internal class SymbolTable
+    public static class EnumExtensions
     {
-        private Dictionary<string, int> hashTable1;
-        private Dictionary<string, int> hashTable2;
+        public static string GetStringVal(this Kind kind)
+        {
+            return kind switch
+            {
+                Kind.STATIC => "static",
+                Kind.FIELD => "field",
+                Kind.ARG => "arg",
+                Kind.VAR => "var",
+                //Kind.NONE => "none",
+                _ => throw new NotSupportedException(),
+            };
+        }
+        public static Kind GetEnumVal(this string kind)
+        {
+            return kind switch
+            {
+                "static" => Kind.STATIC,
+                "field" => Kind.FIELD,
+                "arg" => Kind.ARG,
+                "var" => Kind.VAR,
+                //"none" => Kind.NONE,
+                _ => throw new NotSupportedException(),
+            };
+        }
+    }
 
-        private static int hashtableCount = 0;
+    public class SymbolTable
+    {
+        public class SymbolTableRecord
+        {
+            public SymbolTableRecord(int index, string type, Kind kind)
+            {
+                Index = index;
+                Type = type;
+                Kind = kind;
+            }
 
-        private enum Kind
+            public int Index { get; set; }
+
+            // Point, int,
+            public string Type { get; set; }
+
+            public Kind Kind { get; set; }
+        }
+
+        private Dictionary<string, SymbolTableRecord> classTable = new Dictionary<string, SymbolTableRecord>();
+        private Dictionary<string, SymbolTableRecord> subroutineTable = new Dictionary<string, SymbolTableRecord>();
+
+        private static int staticCounter = 0, fieldCounter = 0, argCounter = 0, varCounter = 0;
+
+        // var, argument, static, field, class, or subroutine.
+        public enum Kind
         {
             STATIC,
             FIELD,
             ARG,
             VAR,
-            NONE
+
+            CLASS,
+            SUBROUTINE,
+            //NONE
         }
 
         public SymbolTable() { }
 
         // Starts a new subroutine scope
-        private void StartSubroutine()
+        public void StartSubroutine()
         {
-
+            varCounter = 0; argCounter = 0;
+            subroutineTable.Clear();
         }
 
         /* Defines a new identifier of a given
          * @param name, @param type, and @param kind and assigns it
          * a running index */
-        private void Define(string name, string type, Kind kind)
+        public void Define(string name, string type, Kind kind)
         {
+            switch (kind)
+            {
+                case Kind.STATIC:
+                    if (classTable.ContainsKey(name))
+                    {
+                        throw new ArgumentException($"identifier {name} already defined.");
+                    }
+                    classTable.Add(name, new SymbolTableRecord(staticCounter++, type, kind));
+                    break;
+                case Kind.FIELD:
+                    if (classTable.ContainsKey(name))
+                    {
+                        throw new ArgumentException($"identifier {name} already defined.");
+                    }
+                    classTable.Add(name, new SymbolTableRecord(fieldCounter++, type, kind));
+                    break;
+                case Kind.ARG:
+                    if (subroutineTable.ContainsKey(name))
+                    {
+                        throw new ArgumentException($"identifier {name} already defined.");
+                    }
+                    subroutineTable.Add(name, new SymbolTableRecord(argCounter++, type, kind));
+                    break;
+                case Kind.VAR:
+                    if (subroutineTable.ContainsKey(name))
+                    {
+                        throw new ArgumentException($"identifier {name} already defined.");
+                    }
+                    subroutineTable.Add(name, new SymbolTableRecord(varCounter++, type, kind));
+                    break;
+                default:
+                    throw new ArgumentException($"Invalid kind {kind} supplied.");
+            }
         }
 
         /* Returns the number of variables of the given kind already
          * defined in the given scope */
-        private int VarCount(Kind k)
+        public int VarCount(Kind k)
         {
-            return -1;
+            if (k == Kind.STATIC || k == Kind.FIELD)
+                return classTable.Where((record) => record.Value.Kind == k).Count();
+            if (k == Kind.VAR || k == Kind.ARG)
+                return subroutineTable.Where((record) => record.Value.Kind == k).Count();
+
+            throw new ArgumentException("Invalid kind arg supplied.");
         }
 
         /* Returns the kind of the named identifier in the current scope.
          * If the identifer is unknown in the current scope, it returns none */
-        private Kind KindOf(string name)
+        public Kind KindOf(string name)
         {
-            return Kind.NONE;
+            var record = FindRecordOrThrow(name);
+            return record.Kind;
         }
 
         // Returns the type of the named identifier in the current scope.
-        private String TypeOf(string name)
+        public string TypeOf(string name)
         {
-            return "";
+            var record = FindRecordOrThrow(name);
+            return record.Type;
         }
 
         // Returns the index assigned to the named identifier
-        private int IndexOf(string name)
+        public int IndexOf(string name)
         {
-            return -1;
+            var record = FindRecordOrThrow(name);
+            return record.Index;
         }
 
+        // Helper method
+        private SymbolTableRecord FindRecordOrThrow(string key)
+        {
+            SymbolTableRecord record;
 
+            bool isIdentifierDefined = subroutineTable.TryGetValue(key, out record);
+
+            if (!isIdentifierDefined)
+            {
+                isIdentifierDefined = classTable.TryGetValue(key, out record);
+
+                if (!isIdentifierDefined)
+                {
+                    throw new Exception($"identifier {key} is not defined in either the subroutine/class level symbol tables.");
+                }
+            }
+
+            return record!;
+        }
+
+        public bool IsIdentifierDefined(string name)
+        {
+            if (subroutineTable.ContainsKey(name))
+            {
+                return true;
+            }
+
+            return classTable.ContainsKey(name);
+        }
     }
 }

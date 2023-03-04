@@ -6,6 +6,9 @@ namespace JackCompiler
     {
         private JackTokenizer tokenizer;
         private XmlWriter xw;
+        private SymbolTable st;
+
+        private string currentClassName;
 
         public CompilationEngine(JackTokenizer tokenizer, string outputFilePath)
         {
@@ -22,12 +25,22 @@ namespace JackCompiler
             xw = XmlWriter.Create(outputFilePath, settings);
 
             this.tokenizer = tokenizer;
+            this.currentClassName = Path.GetFileName(outputFilePath).Replace(".xml", "");
         }
 
         public void CompileClass()
         {
+            st = new SymbolTable();
+
             xw.WriteStartElement("class");
             CompileKeyword("class");
+
+            // Class name should be the same as file name
+            if (tokenizer.currentToken != currentClassName)
+            {
+                throw new Exception($"expected class identifier should have same name as {currentClassName}");
+            }
+
             CompileIdentifier(tokenizer.currentToken); // className
             CompileSymbol("{");
 
@@ -49,16 +62,35 @@ namespace JackCompiler
                 return;
             }
 
+            string kindString, name, type;
+
             xw.WriteStartElement("classVarDec");
-            CompileKeyword(tokenizer.currentToken); // static | field
-            CompileType(tokenizer.currentToken);
-            CompileIdentifier(tokenizer.currentToken); // varName
+
+            // static | field
+            kindString = tokenizer.currentToken;
+            CompileKeyword(kindString);
+            type = tokenizer.currentToken; // int, Animal, boolean, etc.
+            CompileType(type);
+            name = tokenizer.currentToken; // foo, bar
+
+            bool CouldNotParseForSomeReason = Enum.TryParse(kindString.ToUpper(), out SymbolTable.Kind kind) == false;
+
+            if (CouldNotParseForSomeReason)
+            {
+                throw new Exception("Could not parse for some reason");
+            }
+
+            st.Define(name, type, kind);
+
+            CompileIdentifier(name, true); // varName
 
             // field int x, y;
             while (tokenizer.currentToken == ",")
             {
                 CompileSymbol(",");
-                CompileIdentifier(tokenizer.currentToken); // varName2, etc
+                name = tokenizer.currentToken;
+                st.Define(name, type, kind);
+                CompileIdentifier(name, true); // varName2, etc
             }
 
             CompileSymbol(";");
@@ -77,9 +109,17 @@ namespace JackCompiler
                 return;
             }
 
+            st.StartSubroutine();
+
+            if (tokenizer.currentToken == "method")
+            {
+                // Initialize this (if method) and args
+                st.Define("this", currentClassName, SymbolTable.Kind.ARG);
+            }
+
             xw.WriteStartElement("subroutineDec");
 
-            CompileKeyword(tokenizer.currentToken);
+            CompileKeyword(tokenizer.currentToken); // function, constructor, method
 
             // method Employee getEmployee()
             if (tokenizer.TokenType() == JackTokenizer.Token.KEYWORD)
@@ -90,7 +130,7 @@ namespace JackCompiler
                 CompileType(tokenizer.currentToken);
             }
 
-            CompileIdentifier(tokenizer.currentToken); // subRoutineName
+            CompileIdentifier(tokenizer.currentToken); // getEmployee
             CompileSymbol("(");
             CompileParameterList();
             CompileSymbol(")");
@@ -113,12 +153,20 @@ namespace JackCompiler
         // int aX, int aY
         private void CompileParameterList()
         {
+            string name, type;
+
             xw.WriteStartElement("parameterList");
 
             while (tokenizer.currentToken != ")")
             {
-                CompileType(tokenizer.currentToken);
-                CompileIdentifier(tokenizer.currentToken);
+                type = tokenizer.currentToken;
+                CompileType(type);
+
+                name = tokenizer.currentToken;
+                st.Define(name, type, SymbolTable.Kind.ARG);
+
+                // TODO: should args be considered variable declarations?
+                CompileIdentifier(name);
 
                 if (tokenizer.currentToken == ",")
                 {
@@ -137,15 +185,25 @@ namespace JackCompiler
                 return;
             }
 
+            string name, type;
+
             xw.WriteStartElement("varDec");
             CompileKeyword("var");
-            CompileType(tokenizer.currentToken);
-            CompileIdentifier(tokenizer.currentToken);
+
+            type = tokenizer.currentToken;
+            CompileType(type);
+
+            name = tokenizer.currentToken;
+            st.Define(name, type, SymbolTable.Kind.VAR);
+
+            CompileIdentifier(name, true);
 
             while (tokenizer.currentToken == ",")
             {
                 CompileSymbol(",");
-                CompileIdentifier(tokenizer.currentToken);
+                name = tokenizer.currentToken;
+                st.Define(name, type, SymbolTable.Kind.VAR);
+                CompileIdentifier(name, true);
             }
 
             CompileSymbol(";");
@@ -156,10 +214,6 @@ namespace JackCompiler
         // Compiles a sequence of statements
         private void CompileStatements()
         {
-            // TODO: Recursive approach
-            //if (currToken == ";" || currToken == "}")
-            //    return;
-            //else
             xw.WriteStartElement("statements");
 
             // loop through all statements
@@ -195,7 +249,6 @@ namespace JackCompiler
         {
             xw.WriteStartElement("doStatement");
             CompileKeyword("do");
-            // TODO: Subroutine call
             CompileSubroutineCall();
             CompileSymbol(";");
             xw.WriteEndElement(); // end doStatement
@@ -431,17 +484,50 @@ namespace JackCompiler
         }
 
         // Helper method
-        private void CompileIdentifier(string identifier)
+        private void CompileIdentifier(string identifier, bool isDeclaration = false)
         {
             if (!identifier.IsValidIdentifier())
             {
-                throw new System.Exception($"{identifier} is not a valid identifier.");
+                throw new Exception($"{identifier} is not a valid identifier.");
             }
 
             xw.WriteStartElement("identifier");
-            xw.WriteString(tokenizer.GetKeyWord());
-            xw.WriteEndElement();
 
+            xw.WriteStartElement("name");
+            xw.WriteString(identifier);
+            xw.WriteEndElement(); // end name
+
+            bool IsIdentifierDefined = st.IsIdentifierDefined(identifier);
+            if (IsIdentifierDefined)
+            {
+                var kind = st.KindOf(identifier);
+
+                // e.g. Dog.Bark(); these are identifiers that do not need to be stored in the ST.
+                bool isClassOrSubroutineIdentifier = (kind == SymbolTable.Kind.CLASS || kind == SymbolTable.Kind.SUBROUTINE);
+
+                // Show the running index of the identifier
+                if (!isClassOrSubroutineIdentifier)
+                {
+                    // The identifier's category: var, argument, static, field, class, subroutine
+                    xw.WriteStartElement("category");
+                    xw.WriteString(st.KindOf(identifier).ToString());
+                    xw.WriteEndElement(); // end category
+
+                    xw.WriteStartElement("type");
+                    xw.WriteString(st.TypeOf(identifier));
+                    xw.WriteEndElement(); // end type
+
+                    xw.WriteStartElement("IsDeclaration");
+                    xw.WriteString(isDeclaration.ToString());
+                    xw.WriteEndElement(); // end usedOrDeclared
+
+                    xw.WriteStartElement("index");
+                    xw.WriteString(st.IndexOf(identifier).ToString());
+                    xw.WriteEndElement(); // end index
+                }
+            }
+
+            xw.WriteEndElement(); // end identifer
             tokenizer.Advance();
         }
 
