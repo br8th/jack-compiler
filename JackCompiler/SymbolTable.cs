@@ -1,30 +1,23 @@
 ﻿using static JackCompiler.SymbolTable;
+using static JackCompiler.VMWriter;
 
 namespace JackCompiler
 {
     public static class EnumExtensions
     {
-        public static string GetStringVal(this Kind kind)
+        /// <summary>
+        /// Helper method that maps a SymbolTable Kind to a VM segment
+        /// </summary>
+        /// <param name="str">SymbolTable kind</param>
+        /// <returns>VM Segment</returns>
+        public static VMWriter.Segment GetVMSegment(this Kind kind)
         {
             return kind switch
             {
-                Kind.STATIC => "static",
-                Kind.FIELD => "field",
-                Kind.ARG => "arg",
-                Kind.VAR => "var",
-                //Kind.NONE => "none",
-                _ => throw new NotSupportedException(),
-            };
-        }
-        public static Kind GetEnumVal(this string kind)
-        {
-            return kind switch
-            {
-                "static" => Kind.STATIC,
-                "field" => Kind.FIELD,
-                "arg" => Kind.ARG,
-                "var" => Kind.VAR,
-                //"none" => Kind.NONE,
+                Kind.VAR => Segment.LOCAL,
+                Kind.FIELD => Segment.THIS,
+                Kind.STATIC => Segment.STATIC,
+                Kind.ARG => Segment.ARGUMENT,
                 _ => throw new NotSupportedException(),
             };
         }

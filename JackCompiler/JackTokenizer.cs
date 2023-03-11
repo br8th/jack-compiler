@@ -236,21 +236,21 @@ namespace JackCompiler
          * Called only when current tokentype == Keyword */
         public string GetKeyWord()
         {
-            return " " + currentToken + " ";
+            return currentToken;
         }
 
         /* Returns the character which is the current token.
          * Called only when current tokentype == Symbol */
-        private char Symbol()
+        public char Symbol()
         {
             return currentToken.ToCharArray()[0];
         }
 
         /* Returns the String which is the current token.
          * Called only when current tokentype == Identifier */
-        public String Identifier()
+        public string Identifier()
         {
-            return " " + currentToken + " ";
+            return currentToken;
         }
 
         /* Returns the Integer which is the current token.

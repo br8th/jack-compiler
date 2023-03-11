@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using static JackCompiler.VMWriter;
 
 namespace JackCompiler
 {
@@ -14,10 +15,60 @@ namespace JackCompiler
             "int", "char", "boolean"
         };
 
-        private static HashSet<string> operands = new HashSet<string>
+        private static HashSet<char> ops = new HashSet<char>
         {
-            "+", "-", "*", "/", "&", "|", "<", ">", "="
+            '+', '-', '*', '/', '&', '|', '<', '>', '='
         };
+
+        private static HashSet<char> unaryOps = new HashSet<char>
+        {
+            '~', '-' // not, negation e.g. ~(1 > 2),  -1
+        };
+
+        // these keywords can be assigned to a variable e.g foo = true;
+        private static HashSet<string> kwConstants = new HashSet<string>
+        {
+            "true", "false", "null", "this"
+        };
+
+        public static Command GetCommandFromOperand(this char operand, bool isUnary = false)
+        {
+            switch (operand)
+            {
+                case '+':
+                    return Command.ADD;
+                case '-':
+                    return isUnary ? Command.NEG : Command.SUB;
+                case '=':
+                    return Command.EQ;
+                case '>':
+                    return Command.GT;
+                case '<':
+                    return Command.LT;
+                case '&':
+                    return Command.AND;
+                case '|':
+                    return Command.OR;
+                case '~':
+                    return Command.NOT;
+                default:
+                    throw new Exception($"Invalid operand {operand} encountered.");
+            }
+        }
+        public static bool IsUnaryOp(this char c)
+        {
+            return unaryOps.Contains(c);
+        }
+
+//        public static bool IsValidSymbol(this string symbol)
+//        {
+//            if (String.IsNullOrWhiteSpace(symbol))
+//            {
+//                return false;
+//            }
+//
+//            return ops.Contains(symbol);
+//        }
 
         public static bool IsValidIdentifier(this string identifier)
         {
@@ -66,14 +117,14 @@ namespace JackCompiler
             return isValidIdentifier;
         }
 
-        public static bool IsValidOperand(this string op)
+        public static bool IsValidOp(this char op)
         {
-            if (String.IsNullOrWhiteSpace(op))
-            {
-                return false;
-            }
+            return ops.Contains(op);
+        }
 
-            return operands.Contains(op);
+        public static bool IsKeywordConstant(this string kw)
+        {
+            return kwConstants.Contains(kw);
         }
     }
 }
