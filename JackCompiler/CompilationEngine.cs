@@ -387,39 +387,6 @@ namespace JackCompiler
             xw.WriteEndElement(); // end ifStatement
         }
 
-        // Compiles an 'if' statement
-        // With a possible trailing 'else'
-        private void CompileIfInstructor(int numIfs)
-        {
-            xw.WriteStartElement("ifStatement");
-            CompileKeyword("if");
-            CompileSymbol("(");
-            CompileExpression();
-            CompileSymbol(")");
-            vw.WriteIf($"IF_TRUE{numIfs}");
-            vw.WriteGoto($"IF_FALSE{numIfs}");
-            CompileSymbol("{");
-            vw.WriteLabel($"IF_TRUE{numIfs}");
-            CompileStatements(numIfs);
-            CompileSymbol("}");
-
-            vw.WriteLabel($"IF_FALSE{numIfs}");
-
-            // If there's an else block...
-            if (tokenizer.currentToken == "else")
-            {
-                vw.WriteGoto($"IF_END{numIfs}");
-
-                CompileKeyword("else");
-                CompileSymbol("{");
-                CompileStatements(numIfs);
-                CompileSymbol("}");
-                vw.WriteLabel($"IF_END{numIfs}");
-            }
-
-            xw.WriteEndElement(); // end ifStatement
-        }
-
         private void CompileExpression()
         {
             xw.WriteStartElement("expression");
