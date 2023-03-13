@@ -10,7 +10,7 @@ namespace JackCompiler
 
         private static Regex regex = new Regex(pattern, RegexOptions.Compiled);
 
-        private static HashSet<string> validTypes = new HashSet<string>
+        private static readonly HashSet<string> builtInTypes = new HashSet<string>
         {
             "int", "char", "boolean"
         };
@@ -100,7 +100,7 @@ namespace JackCompiler
                 return false;
             }
 
-            if (validTypes.Contains(type))
+            if (builtInTypes.Contains(type))
             {
                 isCustomType = false;
                 return true;

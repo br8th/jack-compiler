@@ -1,34 +1,22 @@
 <class>
-  <keyword> class </keyword>
+  <keyword>class</keyword>
   <identifier>
     <name>Main</name>
   </identifier>
-  <symbol> { </symbol>
-  <classVarDec>
-    <keyword> static </keyword>
-    <keyword> boolean </keyword>
-    <identifier>
-      <name>test</name>
-      <category>STATIC</category>
-      <type>boolean</type>
-      <IsDeclaration>True</IsDeclaration>
-      <index>0</index>
-    </identifier>
-    <symbol> ; </symbol>
-  </classVarDec>
+  <symbol>{</symbol>
   <subroutineDec>
-    <keyword> function </keyword>
-    <keyword> void </keyword>
+    <keyword>function</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>main</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <varDec>
-        <keyword> var </keyword>
+        <keyword>var</keyword>
         <identifier>
           <name>SquareGame</name>
         </identifier>
@@ -39,11 +27,11 @@
           <IsDeclaration>True</IsDeclaration>
           <index>0</index>
         </identifier>
-        <symbol> ; </symbol>
+        <symbol>;</symbol>
       </varDec>
       <statements>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>game</name>
             <category>VAR</category>
@@ -51,335 +39,74 @@
             <IsDeclaration>False</IsDeclaration>
             <index>0</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
               <identifier>
                 <name>SquareGame</name>
               </identifier>
-              <symbol> . </symbol>
+              <symbol>.</symbol>
               <identifier>
                 <name>new</name>
               </identifier>
-              <symbol> ( </symbol>
+              <symbol>(</symbol>
               <expressionList></expressionList>
-              <symbol> ) </symbol>
+              <symbol>)</symbol>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>game</name>
-            <category>VAR</category>
-            <type>SquareGame</type>
-            <IsDeclaration>False</IsDeclaration>
-            <index>0</index>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>run</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList></expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-        <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>game</name>
-            <category>VAR</category>
-            <type>SquareGame</type>
-            <IsDeclaration>False</IsDeclaration>
-            <index>0</index>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>dispose</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList></expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-        <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
-        </returnStatement>
-      </statements>
-      <symbol> } </symbol>
-    </subroutineBody>
-  </subroutineDec>
-  <subroutineDec>
-    <keyword> function </keyword>
-    <keyword> void </keyword>
-    <identifier>
-      <name>more</name>
-    </identifier>
-    <symbol> ( </symbol>
-    <parameterList></parameterList>
-    <symbol> ) </symbol>
-    <subroutineBody>
-      <symbol> { </symbol>
-      <varDec>
-        <keyword> var </keyword>
-        <keyword> int </keyword>
-        <identifier>
-          <name>i</name>
-          <category>VAR</category>
-          <type>int</type>
-          <IsDeclaration>True</IsDeclaration>
-          <index>0</index>
-        </identifier>
-        <symbol> , </symbol>
-        <identifier>
-          <name>j</name>
-          <category>VAR</category>
-          <type>int</type>
-          <IsDeclaration>True</IsDeclaration>
-          <index>1</index>
-        </identifier>
-        <symbol> ; </symbol>
-      </varDec>
-      <varDec>
-        <keyword> var </keyword>
-        <identifier>
-          <name>String</name>
-        </identifier>
-        <identifier>
-          <name>s</name>
-          <category>VAR</category>
-          <type>String</type>
-          <IsDeclaration>True</IsDeclaration>
-          <index>2</index>
-        </identifier>
-        <symbol> ; </symbol>
-      </varDec>
-      <varDec>
-        <keyword> var </keyword>
-        <identifier>
-          <name>Array</name>
-        </identifier>
-        <identifier>
-          <name>a</name>
-          <category>VAR</category>
-          <type>Array</type>
-          <IsDeclaration>True</IsDeclaration>
-          <index>3</index>
-        </identifier>
-        <symbol> ; </symbol>
-      </varDec>
-      <statements>
-        <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>do</keyword>
           <expression>
             <term>
-              <keyword> false </keyword>
+              <identifier>
+                <name>game</name>
+                <category>VAR</category>
+                <type>SquareGame</type>
+                <IsDeclaration>False</IsDeclaration>
+                <index>0</index>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>run</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList></expressionList>
+              <symbol>)</symbol>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
-          <statements>
-            <letStatement>
-              <keyword> let </keyword>
+          <symbol>;</symbol>
+        </doStatement>
+        <doStatement>
+          <keyword>do</keyword>
+          <expression>
+            <term>
               <identifier>
-                <name>s</name>
+                <name>game</name>
                 <category>VAR</category>
-                <type>String</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>2</index>
-              </identifier>
-              <symbol> = </symbol>
-              <expression>
-                <term>
-                  <stringConstant> string constant </stringConstant>
-                </term>
-              </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-            <letStatement>
-              <keyword> let </keyword>
-              <identifier>
-                <name>s</name>
-                <category>VAR</category>
-                <type>String</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>2</index>
-              </identifier>
-              <symbol> = </symbol>
-              <expression>
-                <term>
-                  <keyword> null </keyword>
-                </term>
-              </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-            <letStatement>
-              <keyword> let </keyword>
-              <identifier>
-                <name>a</name>
-                <category>VAR</category>
-                <type>Array</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>3</index>
-              </identifier>
-              <symbol> [ </symbol>
-              <expression>
-                <term>
-                  <integerConstant> 1 </integerConstant>
-                </term>
-              </expression>
-              <symbol> ] </symbol>
-              <symbol> = </symbol>
-              <expression>
-                <term>
-                  <identifier>
-                    <name>a</name>
-                    <category>VAR</category>
-                    <type>Array</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>3</index>
-                  </identifier>
-                  <symbol> [ </symbol>
-                  <expression>
-                    <term>
-                      <integerConstant> 2 </integerConstant>
-                    </term>
-                  </expression>
-                  <symbol> ] </symbol>
-                </term>
-              </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-          </statements>
-          <symbol> } </symbol>
-          <keyword> else </keyword>
-          <symbol> { </symbol>
-          <statements>
-            <letStatement>
-              <keyword> let </keyword>
-              <identifier>
-                <name>i</name>
-                <category>VAR</category>
-                <type>int</type>
+                <type>SquareGame</type>
                 <IsDeclaration>False</IsDeclaration>
                 <index>0</index>
               </identifier>
-              <symbol> = </symbol>
-              <expression>
-                <term>
-                  <identifier>
-                    <name>i</name>
-                    <category>VAR</category>
-                    <type>int</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>0</index>
-                  </identifier>
-                </term>
-                <symbol> * </symbol>
-                <term>
-                  <symbol> ( </symbol>
-                  <expression>
-                    <term>
-                      <symbol> - </symbol>
-                      <term>
-                        <identifier>
-                          <name>j</name>
-                          <category>VAR</category>
-                          <type>int</type>
-                          <IsDeclaration>False</IsDeclaration>
-                          <index>1</index>
-                        </identifier>
-                      </term>
-                    </term>
-                  </expression>
-                  <symbol> ) </symbol>
-                </term>
-              </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-            <letStatement>
-              <keyword> let </keyword>
+              <symbol>.</symbol>
               <identifier>
-                <name>j</name>
-                <category>VAR</category>
-                <type>int</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>1</index>
+                <name>dispose</name>
               </identifier>
-              <symbol> = </symbol>
-              <expression>
-                <term>
-                  <identifier>
-                    <name>j</name>
-                    <category>VAR</category>
-                    <type>int</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>1</index>
-                  </identifier>
-                </term>
-                <symbol> / </symbol>
-                <term>
-                  <symbol> ( </symbol>
-                  <expression>
-                    <term>
-                      <symbol> - </symbol>
-                      <term>
-                        <integerConstant> 2 </integerConstant>
-                      </term>
-                    </term>
-                  </expression>
-                  <symbol> ) </symbol>
-                </term>
-              </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-            <letStatement>
-              <keyword> let </keyword>
-              <identifier>
-                <name>i</name>
-                <category>VAR</category>
-                <type>int</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>0</index>
-              </identifier>
-              <symbol> = </symbol>
-              <expression>
-                <term>
-                  <identifier>
-                    <name>i</name>
-                    <category>VAR</category>
-                    <type>int</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>0</index>
-                  </identifier>
-                </term>
-                <symbol> | </symbol>
-                <term>
-                  <identifier>
-                    <name>j</name>
-                    <category>VAR</category>
-                    <type>int</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>1</index>
-                  </identifier>
-                </term>
-              </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-          </statements>
-          <symbol> } </symbol>
-        </ifStatement>
+              <symbol>(</symbol>
+              <expressionList></expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
+        </doStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
-  <symbol> } </symbol>
+  <symbol>}</symbol>
 </class>

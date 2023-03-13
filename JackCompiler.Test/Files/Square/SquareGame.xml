@@ -1,11 +1,11 @@
 <class>
-  <keyword> class </keyword>
+  <keyword>class</keyword>
   <identifier>
     <name>SquareGame</name>
   </identifier>
-  <symbol> { </symbol>
+  <symbol>{</symbol>
   <classVarDec>
-    <keyword> field </keyword>
+    <keyword>field</keyword>
     <identifier>
       <name>Square</name>
     </identifier>
@@ -14,183 +14,191 @@
       <category>FIELD</category>
       <type>Square</type>
       <IsDeclaration>True</IsDeclaration>
-      <index>3</index>
+      <index>0</index>
     </identifier>
-    <symbol> ; </symbol>
+    <symbol>;</symbol>
   </classVarDec>
   <classVarDec>
-    <keyword> field </keyword>
-    <keyword> int </keyword>
+    <keyword>field</keyword>
+    <keyword>int</keyword>
     <identifier>
       <name>direction</name>
       <category>FIELD</category>
       <type>int</type>
       <IsDeclaration>True</IsDeclaration>
-      <index>4</index>
+      <index>1</index>
     </identifier>
-    <symbol> ; </symbol>
+    <symbol>;</symbol>
   </classVarDec>
   <subroutineDec>
-    <keyword> constructor </keyword>
+    <keyword>constructor</keyword>
     <identifier>
       <name>SquareGame</name>
     </identifier>
     <identifier>
       <name>new</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>square</name>
             <category>FIELD</category>
             <type>Square</type>
             <IsDeclaration>False</IsDeclaration>
-            <index>3</index>
+            <index>0</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
               <identifier>
                 <name>Square</name>
               </identifier>
-              <symbol> . </symbol>
+              <symbol>.</symbol>
               <identifier>
                 <name>new</name>
               </identifier>
-              <symbol> ( </symbol>
+              <symbol>(</symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <integerConstant> 0 </integerConstant>
+                    <integerConstant>0</integerConstant>
                   </term>
                 </expression>
-                <symbol> , </symbol>
+                <symbol>,</symbol>
                 <expression>
                   <term>
-                    <integerConstant> 0 </integerConstant>
+                    <integerConstant>0</integerConstant>
                   </term>
                 </expression>
-                <symbol> , </symbol>
+                <symbol>,</symbol>
                 <expression>
                   <term>
-                    <integerConstant> 30 </integerConstant>
+                    <integerConstant>30</integerConstant>
                   </term>
                 </expression>
               </expressionList>
-              <symbol> ) </symbol>
+              <symbol>)</symbol>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>direction</name>
             <category>FIELD</category>
             <type>int</type>
             <IsDeclaration>False</IsDeclaration>
-            <index>4</index>
+            <index>1</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
-              <integerConstant> 0 </integerConstant>
+              <integerConstant>0</integerConstant>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <returnStatement>
-          <keyword> return </keyword>
+          <keyword>return</keyword>
           <expression>
             <term>
-              <keyword> this </keyword>
+              <keyword>this</keyword>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>dispose</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>square</name>
-            <category>FIELD</category>
-            <type>Square</type>
-            <IsDeclaration>False</IsDeclaration>
-            <index>3</index>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>dispose</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList></expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>square</name>
+                <category>FIELD</category>
+                <type>Square</type>
+                <IsDeclaration>False</IsDeclaration>
+                <index>0</index>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>dispose</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList></expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Memory</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>deAlloc</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <keyword> this </keyword>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Memory</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>deAlloc</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <keyword>this</keyword>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>moveSquare</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
               <identifier>
@@ -198,41 +206,45 @@
                 <category>FIELD</category>
                 <type>int</type>
                 <IsDeclaration>False</IsDeclaration>
-                <index>4</index>
+                <index>1</index>
               </identifier>
             </term>
-            <symbol> = </symbol>
+            <symbol>=</symbol>
             <term>
-              <integerConstant> 1 </integerConstant>
+              <integerConstant>1</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>square</name>
-                <category>FIELD</category>
-                <type>Square</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>3</index>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>moveUp</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>square</name>
+                    <category>FIELD</category>
+                    <type>Square</type>
+                    <IsDeclaration>False</IsDeclaration>
+                    <index>0</index>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>moveUp</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
               <identifier>
@@ -240,41 +252,45 @@
                 <category>FIELD</category>
                 <type>int</type>
                 <IsDeclaration>False</IsDeclaration>
-                <index>4</index>
+                <index>1</index>
               </identifier>
             </term>
-            <symbol> = </symbol>
+            <symbol>=</symbol>
             <term>
-              <integerConstant> 2 </integerConstant>
+              <integerConstant>2</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>square</name>
-                <category>FIELD</category>
-                <type>Square</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>3</index>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>moveDown</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>square</name>
+                    <category>FIELD</category>
+                    <type>Square</type>
+                    <IsDeclaration>False</IsDeclaration>
+                    <index>0</index>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>moveDown</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
               <identifier>
@@ -282,41 +298,45 @@
                 <category>FIELD</category>
                 <type>int</type>
                 <IsDeclaration>False</IsDeclaration>
-                <index>4</index>
+                <index>1</index>
               </identifier>
             </term>
-            <symbol> = </symbol>
+            <symbol>=</symbol>
             <term>
-              <integerConstant> 3 </integerConstant>
+              <integerConstant>3</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>square</name>
-                <category>FIELD</category>
-                <type>Square</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>3</index>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>moveLeft</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>square</name>
+                    <category>FIELD</category>
+                    <type>Square</type>
+                    <IsDeclaration>False</IsDeclaration>
+                    <index>0</index>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>moveLeft</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
               <identifier>
@@ -324,80 +344,88 @@
                 <category>FIELD</category>
                 <type>int</type>
                 <IsDeclaration>False</IsDeclaration>
-                <index>4</index>
+                <index>1</index>
               </identifier>
             </term>
-            <symbol> = </symbol>
+            <symbol>=</symbol>
             <term>
-              <integerConstant> 4 </integerConstant>
+              <integerConstant>4</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>square</name>
-                <category>FIELD</category>
-                <type>Square</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>3</index>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>moveRight</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>square</name>
+                    <category>FIELD</category>
+                    <type>Square</type>
+                    <IsDeclaration>False</IsDeclaration>
+                    <index>0</index>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>moveRight</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Sys</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>wait</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <integerConstant> 5 </integerConstant>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Sys</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>wait</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <integerConstant>5</integerConstant>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>run</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <varDec>
-        <keyword> var </keyword>
-        <keyword> char </keyword>
+        <keyword>var</keyword>
+        <keyword>char</keyword>
         <identifier>
           <name>key</name>
           <category>VAR</category>
@@ -405,11 +433,11 @@
           <IsDeclaration>True</IsDeclaration>
           <index>0</index>
         </identifier>
-        <symbol> ; </symbol>
+        <symbol>;</symbol>
       </varDec>
       <varDec>
-        <keyword> var </keyword>
-        <keyword> boolean </keyword>
+        <keyword>var</keyword>
+        <keyword>boolean</keyword>
         <identifier>
           <name>exit</name>
           <category>VAR</category>
@@ -417,11 +445,11 @@
           <IsDeclaration>True</IsDeclaration>
           <index>1</index>
         </identifier>
-        <symbol> ; </symbol>
+        <symbol>;</symbol>
       </varDec>
       <statements>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>exit</name>
             <category>VAR</category>
@@ -429,20 +457,20 @@
             <IsDeclaration>False</IsDeclaration>
             <index>1</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
-              <keyword> false </keyword>
+              <keyword>false</keyword>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <whileStatement>
-          <keyword> while </keyword>
-          <symbol> ( </symbol>
+          <keyword>while</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
-              <symbol> ~ </symbol>
+              <symbol>~</symbol>
               <term>
                 <identifier>
                   <name>exit</name>
@@ -454,12 +482,12 @@
               </term>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <whileStatement>
-              <keyword> while </keyword>
-              <symbol> ( </symbol>
+              <keyword>while</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -470,16 +498,16 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 0 </integerConstant>
+                  <integerConstant>0</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>key</name>
                     <category>VAR</category>
@@ -487,39 +515,43 @@
                     <IsDeclaration>False</IsDeclaration>
                     <index>0</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
                       <identifier>
                         <name>Keyboard</name>
                       </identifier>
-                      <symbol> . </symbol>
+                      <symbol>.</symbol>
                       <identifier>
                         <name>keyPressed</name>
                       </identifier>
-                      <symbol> ( </symbol>
+                      <symbol>(</symbol>
                       <expressionList></expressionList>
-                      <symbol> ) </symbol>
+                      <symbol>)</symbol>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
                 <doStatement>
-                  <keyword> do </keyword>
-                  <identifier>
-                    <name>moveSquare</name>
-                  </identifier>
-                  <symbol> ( </symbol>
-                  <expressionList></expressionList>
-                  <symbol> ) </symbol>
-                  <symbol> ; </symbol>
+                  <keyword>do</keyword>
+                  <expression>
+                    <term>
+                      <identifier>
+                        <name>moveSquare</name>
+                      </identifier>
+                      <symbol>(</symbol>
+                      <expressionList></expressionList>
+                      <symbol>)</symbol>
+                    </term>
+                  </expression>
+                  <symbol>;</symbol>
                 </doStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </whileStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -530,16 +562,16 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 81 </integerConstant>
+                  <integerConstant>81</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>exit</name>
                     <category>VAR</category>
@@ -547,20 +579,20 @@
                     <IsDeclaration>False</IsDeclaration>
                     <index>1</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
-                      <keyword> true </keyword>
+                      <keyword>true</keyword>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -571,38 +603,42 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 90 </integerConstant>
+                  <integerConstant>90</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <doStatement>
-                  <keyword> do </keyword>
-                  <identifier>
-                    <name>square</name>
-                    <category>FIELD</category>
-                    <type>Square</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>3</index>
-                  </identifier>
-                  <symbol> . </symbol>
-                  <identifier>
-                    <name>decSize</name>
-                  </identifier>
-                  <symbol> ( </symbol>
-                  <expressionList></expressionList>
-                  <symbol> ) </symbol>
-                  <symbol> ; </symbol>
+                  <keyword>do</keyword>
+                  <expression>
+                    <term>
+                      <identifier>
+                        <name>square</name>
+                        <category>FIELD</category>
+                        <type>Square</type>
+                        <IsDeclaration>False</IsDeclaration>
+                        <index>0</index>
+                      </identifier>
+                      <symbol>.</symbol>
+                      <identifier>
+                        <name>decSize</name>
+                      </identifier>
+                      <symbol>(</symbol>
+                      <expressionList></expressionList>
+                      <symbol>)</symbol>
+                    </term>
+                  </expression>
+                  <symbol>;</symbol>
                 </doStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -613,38 +649,42 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 88 </integerConstant>
+                  <integerConstant>88</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <doStatement>
-                  <keyword> do </keyword>
-                  <identifier>
-                    <name>square</name>
-                    <category>FIELD</category>
-                    <type>Square</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>3</index>
-                  </identifier>
-                  <symbol> . </symbol>
-                  <identifier>
-                    <name>incSize</name>
-                  </identifier>
-                  <symbol> ( </symbol>
-                  <expressionList></expressionList>
-                  <symbol> ) </symbol>
-                  <symbol> ; </symbol>
+                  <keyword>do</keyword>
+                  <expression>
+                    <term>
+                      <identifier>
+                        <name>square</name>
+                        <category>FIELD</category>
+                        <type>Square</type>
+                        <IsDeclaration>False</IsDeclaration>
+                        <index>0</index>
+                      </identifier>
+                      <symbol>.</symbol>
+                      <identifier>
+                        <name>incSize</name>
+                      </identifier>
+                      <symbol>(</symbol>
+                      <expressionList></expressionList>
+                      <symbol>)</symbol>
+                    </term>
+                  </expression>
+                  <symbol>;</symbol>
                 </doStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -655,37 +695,37 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 131 </integerConstant>
+                  <integerConstant>131</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>direction</name>
                     <category>FIELD</category>
                     <type>int</type>
                     <IsDeclaration>False</IsDeclaration>
-                    <index>4</index>
+                    <index>1</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
-                      <integerConstant> 1 </integerConstant>
+                      <integerConstant>1</integerConstant>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -696,37 +736,37 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 133 </integerConstant>
+                  <integerConstant>133</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>direction</name>
                     <category>FIELD</category>
                     <type>int</type>
                     <IsDeclaration>False</IsDeclaration>
-                    <index>4</index>
+                    <index>1</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
-                      <integerConstant> 2 </integerConstant>
+                      <integerConstant>2</integerConstant>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -737,37 +777,37 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 130 </integerConstant>
+                  <integerConstant>130</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>direction</name>
                     <category>FIELD</category>
                     <type>int</type>
                     <IsDeclaration>False</IsDeclaration>
-                    <index>4</index>
+                    <index>1</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
-                      <integerConstant> 3 </integerConstant>
+                      <integerConstant>3</integerConstant>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <ifStatement>
-              <keyword> if </keyword>
-              <symbol> ( </symbol>
+              <keyword>if</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -778,42 +818,42 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> = </symbol>
+                <symbol>=</symbol>
                 <term>
-                  <integerConstant> 132 </integerConstant>
+                  <integerConstant>132</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>direction</name>
                     <category>FIELD</category>
                     <type>int</type>
                     <IsDeclaration>False</IsDeclaration>
-                    <index>4</index>
+                    <index>1</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
-                      <integerConstant> 4 </integerConstant>
+                      <integerConstant>4</integerConstant>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </ifStatement>
             <whileStatement>
-              <keyword> while </keyword>
-              <symbol> ( </symbol>
+              <keyword>while</keyword>
+              <symbol>(</symbol>
               <expression>
                 <term>
-                  <symbol> ~ </symbol>
+                  <symbol>~</symbol>
                   <term>
-                    <symbol> ( </symbol>
+                    <symbol>(</symbol>
                     <expression>
                       <term>
                         <identifier>
@@ -824,20 +864,20 @@
                           <index>0</index>
                         </identifier>
                       </term>
-                      <symbol> = </symbol>
+                      <symbol>=</symbol>
                       <term>
-                        <integerConstant> 0 </integerConstant>
+                        <integerConstant>0</integerConstant>
                       </term>
                     </expression>
-                    <symbol> ) </symbol>
+                    <symbol>)</symbol>
                   </term>
                 </term>
               </expression>
-              <symbol> ) </symbol>
-              <symbol> { </symbol>
+              <symbol>)</symbol>
+              <symbol>{</symbol>
               <statements>
                 <letStatement>
-                  <keyword> let </keyword>
+                  <keyword>let</keyword>
                   <identifier>
                     <name>key</name>
                     <category>VAR</category>
@@ -845,46 +885,50 @@
                     <IsDeclaration>False</IsDeclaration>
                     <index>0</index>
                   </identifier>
-                  <symbol> = </symbol>
+                  <symbol>=</symbol>
                   <expression>
                     <term>
                       <identifier>
                         <name>Keyboard</name>
                       </identifier>
-                      <symbol> . </symbol>
+                      <symbol>.</symbol>
                       <identifier>
                         <name>keyPressed</name>
                       </identifier>
-                      <symbol> ( </symbol>
+                      <symbol>(</symbol>
                       <expressionList></expressionList>
-                      <symbol> ) </symbol>
+                      <symbol>)</symbol>
                     </term>
                   </expression>
-                  <symbol> ; </symbol>
+                  <symbol>;</symbol>
                 </letStatement>
                 <doStatement>
-                  <keyword> do </keyword>
-                  <identifier>
-                    <name>moveSquare</name>
-                  </identifier>
-                  <symbol> ( </symbol>
-                  <expressionList></expressionList>
-                  <symbol> ) </symbol>
-                  <symbol> ; </symbol>
+                  <keyword>do</keyword>
+                  <expression>
+                    <term>
+                      <identifier>
+                        <name>moveSquare</name>
+                      </identifier>
+                      <symbol>(</symbol>
+                      <expressionList></expressionList>
+                      <symbol>)</symbol>
+                    </term>
+                  </expression>
+                  <symbol>;</symbol>
                 </doStatement>
               </statements>
-              <symbol> } </symbol>
+              <symbol>}</symbol>
             </whileStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </whileStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
-  <symbol> } </symbol>
+  <symbol>}</symbol>
 </class>

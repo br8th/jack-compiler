@@ -1,12 +1,12 @@
 <class>
-  <keyword> class </keyword>
+  <keyword>class</keyword>
   <identifier>
     <name>Square</name>
   </identifier>
-  <symbol> { </symbol>
+  <symbol>{</symbol>
   <classVarDec>
-    <keyword> field </keyword>
-    <keyword> int </keyword>
+    <keyword>field</keyword>
+    <keyword>int</keyword>
     <identifier>
       <name>x</name>
       <category>FIELD</category>
@@ -14,7 +14,7 @@
       <IsDeclaration>True</IsDeclaration>
       <index>0</index>
     </identifier>
-    <symbol> , </symbol>
+    <symbol>,</symbol>
     <identifier>
       <name>y</name>
       <category>FIELD</category>
@@ -22,11 +22,11 @@
       <IsDeclaration>True</IsDeclaration>
       <index>1</index>
     </identifier>
-    <symbol> ; </symbol>
+    <symbol>;</symbol>
   </classVarDec>
   <classVarDec>
-    <keyword> field </keyword>
-    <keyword> int </keyword>
+    <keyword>field</keyword>
+    <keyword>int</keyword>
     <identifier>
       <name>size</name>
       <category>FIELD</category>
@@ -34,19 +34,19 @@
       <IsDeclaration>True</IsDeclaration>
       <index>2</index>
     </identifier>
-    <symbol> ; </symbol>
+    <symbol>;</symbol>
   </classVarDec>
   <subroutineDec>
-    <keyword> constructor </keyword>
+    <keyword>constructor</keyword>
     <identifier>
       <name>Square</name>
     </identifier>
     <identifier>
       <name>new</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList>
-      <keyword> int </keyword>
+      <keyword>int</keyword>
       <identifier>
         <name>Ax</name>
         <category>ARG</category>
@@ -54,8 +54,8 @@
         <IsDeclaration>False</IsDeclaration>
         <index>0</index>
       </identifier>
-      <symbol> , </symbol>
-      <keyword> int </keyword>
+      <symbol>,</symbol>
+      <keyword>int</keyword>
       <identifier>
         <name>Ay</name>
         <category>ARG</category>
@@ -63,8 +63,8 @@
         <IsDeclaration>False</IsDeclaration>
         <index>1</index>
       </identifier>
-      <symbol> , </symbol>
-      <keyword> int </keyword>
+      <symbol>,</symbol>
+      <keyword>int</keyword>
       <identifier>
         <name>Asize</name>
         <category>ARG</category>
@@ -73,12 +73,12 @@
         <index>2</index>
       </identifier>
     </parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>x</name>
             <category>FIELD</category>
@@ -86,7 +86,7 @@
             <IsDeclaration>False</IsDeclaration>
             <index>0</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
               <identifier>
@@ -98,10 +98,10 @@
               </identifier>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>y</name>
             <category>FIELD</category>
@@ -109,7 +109,7 @@
             <IsDeclaration>False</IsDeclaration>
             <index>1</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
               <identifier>
@@ -121,10 +121,10 @@
               </identifier>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <letStatement>
-          <keyword> let </keyword>
+          <keyword>let</keyword>
           <identifier>
             <name>size</name>
             <category>FIELD</category>
@@ -132,7 +132,7 @@
             <IsDeclaration>False</IsDeclaration>
             <index>2</index>
           </identifier>
-          <symbol> = </symbol>
+          <symbol>=</symbol>
           <expression>
             <term>
               <identifier>
@@ -144,336 +144,360 @@
               </identifier>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
         </letStatement>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>draw</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList></expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
-        </doStatement>
-        <returnStatement>
-          <keyword> return </keyword>
+          <keyword>do</keyword>
           <expression>
             <term>
-              <keyword> this </keyword>
+              <identifier>
+                <name>draw</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList></expressionList>
+              <symbol>)</symbol>
             </term>
           </expression>
-          <symbol> ; </symbol>
+          <symbol>;</symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword>return</keyword>
+          <expression>
+            <term>
+              <keyword>this</keyword>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>dispose</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Memory</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>deAlloc</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <keyword> this </keyword>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Memory</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>deAlloc</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <keyword>this</keyword>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>draw</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Screen</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>setColor</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <keyword> true </keyword>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Screen</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>setColor</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <keyword>true</keyword>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Screen</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>drawRectangle</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <identifier>
-                  <name>x</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>0</index>
-                </identifier>
-              </term>
-            </expression>
-            <symbol> , </symbol>
-            <expression>
-              <term>
-                <identifier>
-                  <name>y</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>1</index>
-                </identifier>
-              </term>
-            </expression>
-            <symbol> , </symbol>
-            <expression>
-              <term>
-                <identifier>
-                  <name>x</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>0</index>
-                </identifier>
-              </term>
-              <symbol> + </symbol>
-              <term>
-                <identifier>
-                  <name>size</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>2</index>
-                </identifier>
-              </term>
-            </expression>
-            <symbol> , </symbol>
-            <expression>
-              <term>
-                <identifier>
-                  <name>y</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>1</index>
-                </identifier>
-              </term>
-              <symbol> + </symbol>
-              <term>
-                <identifier>
-                  <name>size</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>2</index>
-                </identifier>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Screen</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>drawRectangle</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>x</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>0</index>
+                    </identifier>
+                  </term>
+                </expression>
+                <symbol>,</symbol>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>y</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>1</index>
+                    </identifier>
+                  </term>
+                </expression>
+                <symbol>,</symbol>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>x</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>0</index>
+                    </identifier>
+                  </term>
+                  <symbol>+</symbol>
+                  <term>
+                    <identifier>
+                      <name>size</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>2</index>
+                    </identifier>
+                  </term>
+                </expression>
+                <symbol>,</symbol>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>y</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>1</index>
+                    </identifier>
+                  </term>
+                  <symbol>+</symbol>
+                  <term>
+                    <identifier>
+                      <name>size</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>2</index>
+                    </identifier>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>erase</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Screen</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>setColor</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <keyword> false </keyword>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Screen</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>setColor</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <keyword>false</keyword>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <doStatement>
-          <keyword> do </keyword>
-          <identifier>
-            <name>Screen</name>
-          </identifier>
-          <symbol> . </symbol>
-          <identifier>
-            <name>drawRectangle</name>
-          </identifier>
-          <symbol> ( </symbol>
-          <expressionList>
-            <expression>
-              <term>
-                <identifier>
-                  <name>x</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>0</index>
-                </identifier>
-              </term>
-            </expression>
-            <symbol> , </symbol>
-            <expression>
-              <term>
-                <identifier>
-                  <name>y</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>1</index>
-                </identifier>
-              </term>
-            </expression>
-            <symbol> , </symbol>
-            <expression>
-              <term>
-                <identifier>
-                  <name>x</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>0</index>
-                </identifier>
-              </term>
-              <symbol> + </symbol>
-              <term>
-                <identifier>
-                  <name>size</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>2</index>
-                </identifier>
-              </term>
-            </expression>
-            <symbol> , </symbol>
-            <expression>
-              <term>
-                <identifier>
-                  <name>y</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>1</index>
-                </identifier>
-              </term>
-              <symbol> + </symbol>
-              <term>
-                <identifier>
-                  <name>size</name>
-                  <category>FIELD</category>
-                  <type>int</type>
-                  <IsDeclaration>False</IsDeclaration>
-                  <index>2</index>
-                </identifier>
-              </term>
-            </expression>
-          </expressionList>
-          <symbol> ) </symbol>
-          <symbol> ; </symbol>
+          <keyword>do</keyword>
+          <expression>
+            <term>
+              <identifier>
+                <name>Screen</name>
+              </identifier>
+              <symbol>.</symbol>
+              <identifier>
+                <name>drawRectangle</name>
+              </identifier>
+              <symbol>(</symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>x</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>0</index>
+                    </identifier>
+                  </term>
+                </expression>
+                <symbol>,</symbol>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>y</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>1</index>
+                    </identifier>
+                  </term>
+                </expression>
+                <symbol>,</symbol>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>x</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>0</index>
+                    </identifier>
+                  </term>
+                  <symbol>+</symbol>
+                  <term>
+                    <identifier>
+                      <name>size</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>2</index>
+                    </identifier>
+                  </term>
+                </expression>
+                <symbol>,</symbol>
+                <expression>
+                  <term>
+                    <identifier>
+                      <name>y</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>1</index>
+                    </identifier>
+                  </term>
+                  <symbol>+</symbol>
+                  <term>
+                    <identifier>
+                      <name>size</name>
+                      <category>FIELD</category>
+                      <type>int</type>
+                      <IsDeclaration>False</IsDeclaration>
+                      <index>2</index>
+                    </identifier>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol>)</symbol>
+            </term>
+          </expression>
+          <symbol>;</symbol>
         </doStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>incSize</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
-              <symbol> ( </symbol>
+              <symbol>(</symbol>
               <expression>
                 <term>
-                  <symbol> ( </symbol>
+                  <symbol>(</symbol>
                   <expression>
                     <term>
                       <identifier>
@@ -484,7 +508,7 @@
                         <index>1</index>
                       </identifier>
                     </term>
-                    <symbol> + </symbol>
+                    <symbol>+</symbol>
                     <term>
                       <identifier>
                         <name>size</name>
@@ -495,21 +519,21 @@
                       </identifier>
                     </term>
                   </expression>
-                  <symbol> ) </symbol>
+                  <symbol>)</symbol>
                 </term>
-                <symbol> &lt; </symbol>
+                <symbol>&lt;</symbol>
                 <term>
-                  <integerConstant> 254 </integerConstant>
+                  <integerConstant>254</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
+              <symbol>)</symbol>
             </term>
-            <symbol> &amp; </symbol>
+            <symbol>&amp;</symbol>
             <term>
-              <symbol> ( </symbol>
+              <symbol>(</symbol>
               <expression>
                 <term>
-                  <symbol> ( </symbol>
+                  <symbol>(</symbol>
                   <expression>
                     <term>
                       <identifier>
@@ -520,7 +544,7 @@
                         <index>0</index>
                       </identifier>
                     </term>
-                    <symbol> + </symbol>
+                    <symbol>+</symbol>
                     <term>
                       <identifier>
                         <name>size</name>
@@ -531,31 +555,35 @@
                       </identifier>
                     </term>
                   </expression>
-                  <symbol> ) </symbol>
+                  <symbol>)</symbol>
                 </term>
-                <symbol> &lt; </symbol>
+                <symbol>&lt;</symbol>
                 <term>
-                  <integerConstant> 510 </integerConstant>
+                  <integerConstant>510</integerConstant>
                 </term>
               </expression>
-              <symbol> ) </symbol>
+              <symbol>)</symbol>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>erase</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>erase</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <letStatement>
-              <keyword> let </keyword>
+              <keyword>let</keyword>
               <identifier>
                 <name>size</name>
                 <category>FIELD</category>
@@ -563,7 +591,7 @@
                 <IsDeclaration>False</IsDeclaration>
                 <index>2</index>
               </identifier>
-              <symbol> = </symbol>
+              <symbol>=</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -574,49 +602,53 @@
                     <index>2</index>
                   </identifier>
                 </term>
-                <symbol> + </symbol>
+                <symbol>+</symbol>
                 <term>
-                  <integerConstant> 2 </integerConstant>
+                  <integerConstant>2</integerConstant>
                 </term>
               </expression>
-              <symbol> ; </symbol>
+              <symbol>;</symbol>
             </letStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>draw</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>draw</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>decSize</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
               <identifier>
@@ -627,26 +659,30 @@
                 <index>2</index>
               </identifier>
             </term>
-            <symbol> &gt; </symbol>
+            <symbol>&gt;</symbol>
             <term>
-              <integerConstant> 2 </integerConstant>
+              <integerConstant>2</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>erase</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>erase</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <letStatement>
-              <keyword> let </keyword>
+              <keyword>let</keyword>
               <identifier>
                 <name>size</name>
                 <category>FIELD</category>
@@ -654,7 +690,7 @@
                 <IsDeclaration>False</IsDeclaration>
                 <index>2</index>
               </identifier>
-              <symbol> = </symbol>
+              <symbol>=</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -665,49 +701,53 @@
                     <index>2</index>
                   </identifier>
                 </term>
-                <symbol> - </symbol>
+                <symbol>-</symbol>
                 <term>
-                  <integerConstant> 2 </integerConstant>
+                  <integerConstant>2</integerConstant>
                 </term>
               </expression>
-              <symbol> ; </symbol>
+              <symbol>;</symbol>
             </letStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>draw</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList></expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>draw</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList></expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>moveUp</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
               <identifier>
@@ -718,71 +758,106 @@
                 <index>1</index>
               </identifier>
             </term>
-            <symbol> &gt; </symbol>
+            <symbol>&gt;</symbol>
             <term>
-              <integerConstant> 1 </integerConstant>
+              <integerConstant>1</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> false </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>false</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <symbol> ( </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
                     <expression>
                       <term>
                         <identifier>
-                          <name>y</name>
+                          <name>x</name>
                           <category>FIELD</category>
                           <type>int</type>
                           <IsDeclaration>False</IsDeclaration>
-                          <index>1</index>
+                          <index>0</index>
                         </identifier>
                       </term>
-                      <symbol> + </symbol>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <symbol>(</symbol>
+                        <expression>
+                          <term>
+                            <identifier>
+                              <name>y</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>1</index>
+                            </identifier>
+                          </term>
+                          <symbol>+</symbol>
+                          <term>
+                            <identifier>
+                              <name>size</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>2</index>
+                            </identifier>
+                          </term>
+                        </expression>
+                        <symbol>)</symbol>
+                      </term>
+                      <symbol>-</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
                       <term>
                         <identifier>
                           <name>size</name>
@@ -793,63 +868,36 @@
                         </identifier>
                       </term>
                     </expression>
-                    <symbol> ) </symbol>
-                  </term>
-                  <symbol> - </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <letStatement>
-              <keyword> let </keyword>
+              <keyword>let</keyword>
               <identifier>
                 <name>y</name>
                 <category>FIELD</category>
@@ -857,7 +905,7 @@
                 <IsDeclaration>False</IsDeclaration>
                 <index>1</index>
               </identifier>
-              <symbol> = </symbol>
+              <symbol>=</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -868,138 +916,146 @@
                     <index>1</index>
                   </identifier>
                 </term>
-                <symbol> - </symbol>
+                <symbol>-</symbol>
                 <term>
-                  <integerConstant> 2 </integerConstant>
+                  <integerConstant>2</integerConstant>
                 </term>
               </expression>
-              <symbol> ; </symbol>
+              <symbol>;</symbol>
             </letStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> true </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>true</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>moveDown</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
-              <symbol> ( </symbol>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -1010,7 +1066,7 @@
                     <index>1</index>
                   </identifier>
                 </term>
-                <symbol> + </symbol>
+                <symbol>+</symbol>
                 <term>
                   <identifier>
                     <name>size</name>
@@ -1021,185 +1077,65 @@
                   </identifier>
                 </term>
               </expression>
-              <symbol> ) </symbol>
+              <symbol>)</symbol>
             </term>
-            <symbol> &lt; </symbol>
+            <symbol>&lt;</symbol>
             <term>
-              <integerConstant> 254 </integerConstant>
+              <integerConstant>254</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> false </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
-            </doStatement>
-            <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
-            </doStatement>
-            <letStatement>
-              <keyword> let </keyword>
-              <identifier>
-                <name>y</name>
-                <category>FIELD</category>
-                <type>int</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>1</index>
-              </identifier>
-              <symbol> = </symbol>
+              <keyword>do</keyword>
               <expression>
                 <term>
                   <identifier>
-                    <name>y</name>
-                    <category>FIELD</category>
-                    <type>int</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>1</index>
+                    <name>Screen</name>
                   </identifier>
-                </term>
-                <symbol> + </symbol>
-                <term>
-                  <integerConstant> 2 </integerConstant>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>false</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
                 </term>
               </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-            <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> true </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <symbol>;</symbol>
             </doStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <symbol> ( </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
                     <expression>
                       <term>
                         <identifier>
@@ -1210,150 +1146,8 @@
                           <index>1</index>
                         </identifier>
                       </term>
-                      <symbol> + </symbol>
-                      <term>
-                        <identifier>
-                          <name>size</name>
-                          <category>FIELD</category>
-                          <type>int</type>
-                          <IsDeclaration>False</IsDeclaration>
-                          <index>2</index>
-                        </identifier>
-                      </term>
                     </expression>
-                    <symbol> ) </symbol>
-                  </term>
-                  <symbol> - </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
-            </doStatement>
-          </statements>
-          <symbol> } </symbol>
-        </ifStatement>
-        <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
-        </returnStatement>
-      </statements>
-      <symbol> } </symbol>
-    </subroutineBody>
-  </subroutineDec>
-  <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
-    <identifier>
-      <name>moveLeft</name>
-    </identifier>
-    <symbol> ( </symbol>
-    <parameterList></parameterList>
-    <symbol> ) </symbol>
-    <subroutineBody>
-      <symbol> { </symbol>
-      <statements>
-        <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
-          <expression>
-            <term>
-              <identifier>
-                <name>x</name>
-                <category>FIELD</category>
-                <type>int</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>0</index>
-              </identifier>
-            </term>
-            <symbol> &gt; </symbol>
-            <term>
-              <integerConstant> 1 </integerConstant>
-            </term>
-          </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
-          <statements>
-            <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> false </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
-            </doStatement>
-            <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <symbol> ( </symbol>
+                    <symbol>,</symbol>
                     <expression>
                       <term>
                         <identifier>
@@ -1364,7 +1158,7 @@
                           <index>0</index>
                         </identifier>
                       </term>
-                      <symbol> + </symbol>
+                      <symbol>+</symbol>
                       <term>
                         <identifier>
                           <name>size</name>
@@ -1375,75 +1169,213 @@
                         </identifier>
                       </term>
                     </expression>
-                    <symbol> ) </symbol>
-                  </term>
-                  <symbol> - </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <letStatement>
-              <keyword> let </keyword>
+              <keyword>let</keyword>
+              <identifier>
+                <name>y</name>
+                <category>FIELD</category>
+                <type>int</type>
+                <IsDeclaration>False</IsDeclaration>
+                <index>1</index>
+              </identifier>
+              <symbol>=</symbol>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>y</name>
+                    <category>FIELD</category>
+                    <type>int</type>
+                    <IsDeclaration>False</IsDeclaration>
+                    <index>1</index>
+                  </identifier>
+                </term>
+                <symbol>+</symbol>
+                <term>
+                  <integerConstant>2</integerConstant>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </letStatement>
+            <doStatement>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>true</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </doStatement>
+            <doStatement>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <symbol>(</symbol>
+                        <expression>
+                          <term>
+                            <identifier>
+                              <name>y</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>1</index>
+                            </identifier>
+                          </term>
+                          <symbol>+</symbol>
+                          <term>
+                            <identifier>
+                              <name>size</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>2</index>
+                            </identifier>
+                          </term>
+                        </expression>
+                        <symbol>)</symbol>
+                      </term>
+                      <symbol>-</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </doStatement>
+          </statements>
+          <symbol>}</symbol>
+        </ifStatement>
+        <returnStatement>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
+        </returnStatement>
+      </statements>
+      <symbol>}</symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
+    <identifier>
+      <name>moveLeft</name>
+    </identifier>
+    <symbol>(</symbol>
+    <parameterList></parameterList>
+    <symbol>)</symbol>
+    <subroutineBody>
+      <symbol>{</symbol>
+      <statements>
+        <ifStatement>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
+          <expression>
+            <term>
               <identifier>
                 <name>x</name>
                 <category>FIELD</category>
@@ -1451,7 +1383,155 @@
                 <IsDeclaration>False</IsDeclaration>
                 <index>0</index>
               </identifier>
-              <symbol> = </symbol>
+            </term>
+            <symbol>&gt;</symbol>
+            <term>
+              <integerConstant>1</integerConstant>
+            </term>
+          </expression>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
+          <statements>
+            <doStatement>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>false</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </doStatement>
+            <doStatement>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <symbol>(</symbol>
+                        <expression>
+                          <term>
+                            <identifier>
+                              <name>x</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>0</index>
+                            </identifier>
+                          </term>
+                          <symbol>+</symbol>
+                          <term>
+                            <identifier>
+                              <name>size</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>2</index>
+                            </identifier>
+                          </term>
+                        </expression>
+                        <symbol>)</symbol>
+                      </term>
+                      <symbol>-</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </doStatement>
+            <letStatement>
+              <keyword>let</keyword>
+              <identifier>
+                <name>x</name>
+                <category>FIELD</category>
+                <type>int</type>
+                <IsDeclaration>False</IsDeclaration>
+                <index>0</index>
+              </identifier>
+              <symbol>=</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -1462,138 +1542,146 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> - </symbol>
+                <symbol>-</symbol>
                 <term>
-                  <integerConstant> 2 </integerConstant>
+                  <integerConstant>2</integerConstant>
                 </term>
               </expression>
-              <symbol> ; </symbol>
+              <symbol>;</symbol>
             </letStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> true </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>true</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
   <subroutineDec>
-    <keyword> method </keyword>
-    <keyword> void </keyword>
+    <keyword>method</keyword>
+    <keyword>void</keyword>
     <identifier>
       <name>moveRight</name>
     </identifier>
-    <symbol> ( </symbol>
+    <symbol>(</symbol>
     <parameterList></parameterList>
-    <symbol> ) </symbol>
+    <symbol>)</symbol>
     <subroutineBody>
-      <symbol> { </symbol>
+      <symbol>{</symbol>
       <statements>
         <ifStatement>
-          <keyword> if </keyword>
-          <symbol> ( </symbol>
+          <keyword>if</keyword>
+          <symbol>(</symbol>
           <expression>
             <term>
-              <symbol> ( </symbol>
+              <symbol>(</symbol>
               <expression>
                 <term>
                   <identifier>
@@ -1604,7 +1692,7 @@
                     <index>0</index>
                   </identifier>
                 </term>
-                <symbol> + </symbol>
+                <symbol>+</symbol>
                 <term>
                   <identifier>
                     <name>size</name>
@@ -1615,173 +1703,53 @@
                   </identifier>
                 </term>
               </expression>
-              <symbol> ) </symbol>
+              <symbol>)</symbol>
             </term>
-            <symbol> &lt; </symbol>
+            <symbol>&lt;</symbol>
             <term>
-              <integerConstant> 510 </integerConstant>
+              <integerConstant>510</integerConstant>
             </term>
           </expression>
-          <symbol> ) </symbol>
-          <symbol> { </symbol>
+          <symbol>)</symbol>
+          <symbol>{</symbol>
           <statements>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> false </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
-            </doStatement>
-            <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
-            </doStatement>
-            <letStatement>
-              <keyword> let </keyword>
-              <identifier>
-                <name>x</name>
-                <category>FIELD</category>
-                <type>int</type>
-                <IsDeclaration>False</IsDeclaration>
-                <index>0</index>
-              </identifier>
-              <symbol> = </symbol>
+              <keyword>do</keyword>
               <expression>
                 <term>
                   <identifier>
-                    <name>x</name>
-                    <category>FIELD</category>
-                    <type>int</type>
-                    <IsDeclaration>False</IsDeclaration>
-                    <index>0</index>
+                    <name>Screen</name>
                   </identifier>
-                </term>
-                <symbol> + </symbol>
-                <term>
-                  <integerConstant> 2 </integerConstant>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>false</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
                 </term>
               </expression>
-              <symbol> ; </symbol>
-            </letStatement>
-            <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>setColor</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <keyword> true </keyword>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+              <symbol>;</symbol>
             </doStatement>
             <doStatement>
-              <keyword> do </keyword>
-              <identifier>
-                <name>Screen</name>
-              </identifier>
-              <symbol> . </symbol>
-              <identifier>
-                <name>drawRectangle</name>
-              </identifier>
-              <symbol> ( </symbol>
-              <expressionList>
-                <expression>
-                  <term>
-                    <symbol> ( </symbol>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
                     <expression>
                       <term>
                         <identifier>
@@ -1792,7 +1760,47 @@
                           <index>0</index>
                         </identifier>
                       </term>
-                      <symbol> + </symbol>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
                       <term>
                         <identifier>
                           <name>size</name>
@@ -1803,83 +1811,179 @@
                         </identifier>
                       </term>
                     </expression>
-                    <symbol> ) </symbol>
-                  </term>
-                  <symbol> - </symbol>
-                  <term>
-                    <integerConstant> 1 </integerConstant>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>x</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>0</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-                <symbol> , </symbol>
-                <expression>
-                  <term>
-                    <identifier>
-                      <name>y</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>1</index>
-                    </identifier>
-                  </term>
-                  <symbol> + </symbol>
-                  <term>
-                    <identifier>
-                      <name>size</name>
-                      <category>FIELD</category>
-                      <type>int</type>
-                      <IsDeclaration>False</IsDeclaration>
-                      <index>2</index>
-                    </identifier>
-                  </term>
-                </expression>
-              </expressionList>
-              <symbol> ) </symbol>
-              <symbol> ; </symbol>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </doStatement>
+            <letStatement>
+              <keyword>let</keyword>
+              <identifier>
+                <name>x</name>
+                <category>FIELD</category>
+                <type>int</type>
+                <IsDeclaration>False</IsDeclaration>
+                <index>0</index>
+              </identifier>
+              <symbol>=</symbol>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>x</name>
+                    <category>FIELD</category>
+                    <type>int</type>
+                    <IsDeclaration>False</IsDeclaration>
+                    <index>0</index>
+                  </identifier>
+                </term>
+                <symbol>+</symbol>
+                <term>
+                  <integerConstant>2</integerConstant>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </letStatement>
+            <doStatement>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>setColor</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword>true</keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
+            </doStatement>
+            <doStatement>
+              <keyword>do</keyword>
+              <expression>
+                <term>
+                  <identifier>
+                    <name>Screen</name>
+                  </identifier>
+                  <symbol>.</symbol>
+                  <identifier>
+                    <name>drawRectangle</name>
+                  </identifier>
+                  <symbol>(</symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <symbol>(</symbol>
+                        <expression>
+                          <term>
+                            <identifier>
+                              <name>x</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>0</index>
+                            </identifier>
+                          </term>
+                          <symbol>+</symbol>
+                          <term>
+                            <identifier>
+                              <name>size</name>
+                              <category>FIELD</category>
+                              <type>int</type>
+                              <IsDeclaration>False</IsDeclaration>
+                              <index>2</index>
+                            </identifier>
+                          </term>
+                        </expression>
+                        <symbol>)</symbol>
+                      </term>
+                      <symbol>-</symbol>
+                      <term>
+                        <integerConstant>1</integerConstant>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>x</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>0</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                    <symbol>,</symbol>
+                    <expression>
+                      <term>
+                        <identifier>
+                          <name>y</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>1</index>
+                        </identifier>
+                      </term>
+                      <symbol>+</symbol>
+                      <term>
+                        <identifier>
+                          <name>size</name>
+                          <category>FIELD</category>
+                          <type>int</type>
+                          <IsDeclaration>False</IsDeclaration>
+                          <index>2</index>
+                        </identifier>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol>)</symbol>
+                </term>
+              </expression>
+              <symbol>;</symbol>
             </doStatement>
           </statements>
-          <symbol> } </symbol>
+          <symbol>}</symbol>
         </ifStatement>
         <returnStatement>
-          <keyword> return </keyword>
-          <symbol> ; </symbol>
+          <keyword>return</keyword>
+          <symbol>;</symbol>
         </returnStatement>
       </statements>
-      <symbol> } </symbol>
+      <symbol>}</symbol>
     </subroutineBody>
   </subroutineDec>
-  <symbol> } </symbol>
+  <symbol>}</symbol>
 </class>

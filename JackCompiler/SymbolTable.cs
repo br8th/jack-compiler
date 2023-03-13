@@ -36,7 +36,7 @@ namespace JackCompiler
 
             public int Index { get; set; }
 
-            // Point, int,
+            // built in types (int, char, boolean) or custom type (Point, Dog)
             public string Type { get; set; }
 
             public Kind Kind { get; set; }
@@ -55,6 +55,7 @@ namespace JackCompiler
             ARG,
             VAR,
 
+            // Not used
             CLASS,
             SUBROUTINE,
             //NONE
@@ -65,7 +66,7 @@ namespace JackCompiler
         // Starts a new subroutine scope
         public void StartSubroutine()
         {
-            varCounter = 0; argCounter = 0;
+            varCounter = 0; argCounter = 0; fieldCounter = 0; staticCounter = 0;
             subroutineTable.Clear();
         }
 
