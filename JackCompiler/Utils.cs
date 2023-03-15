@@ -60,16 +60,6 @@ namespace JackCompiler
             return unaryOps.Contains(c);
         }
 
-//        public static bool IsValidSymbol(this string symbol)
-//        {
-//            if (String.IsNullOrWhiteSpace(symbol))
-//            {
-//                return false;
-//            }
-//
-//            return ops.Contains(symbol);
-//        }
-
         public static bool IsValidIdentifier(this string identifier)
         {
             if (String.IsNullOrWhiteSpace(identifier))

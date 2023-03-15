@@ -1,0 +1,36 @@
+function Main.main 0
+push constant 0
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 1
+call Output.printInt 1
+pop temp 0
+label IF_FALSE1
+goto IF_END0
+label IF_FALSE0
+push constant 0
+call Output.printInt 1
+pop temp 0
+label IF_END0
+push constant 0
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+call Output.printInt 1
+pop temp 0
+goto IF_END2
+label IF_FALSE2
+push constant 1
+call Output.printInt 1
+pop temp 0
+label IF_END2
+push constant 0
+return

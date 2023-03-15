@@ -55,7 +55,7 @@ namespace JackCompiler
             ARG,
             VAR,
 
-            // Not used
+            // TODO: Not used
             CLASS,
             SUBROUTINE,
             //NONE
@@ -66,7 +66,7 @@ namespace JackCompiler
         // Starts a new subroutine scope
         public void StartSubroutine()
         {
-            varCounter = 0; argCounter = 0; fieldCounter = 0; staticCounter = 0;
+            varCounter = 0; argCounter = 0; fieldCounter = 0;
             subroutineTable.Clear();
         }
 

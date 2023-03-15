@@ -262,9 +262,9 @@ namespace JackCompiler
 
         /* Returns the String which is the current token.
          * Called only when current tokentype == String_Const */
-        public String StringVal()
+        public string StringVal()
         {
-            return " " + currentToken.Replace("\"", "") + " ";
+            return currentToken.Replace("\"", "");
         }
 
     }
