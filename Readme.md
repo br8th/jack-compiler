@@ -4,7 +4,8 @@ Jack is a simple object-based language. It tastes a bit like Java and C++, with 
 The language lends itself nicely to interactive games like Tetris, Snake, Pong, Space
 Invaders, and similar classics. You can find a list of cool stuff built with jack [here](https://www.nand2tetris.org/copy-of-talks).
 
-This project is part of the assignments in the [Nand2Tetris](https://www.nand2tetris.org/) course.
+This project is part of the assignments in the [Nand2Tetris](https://www.nand2tetris.org/) course. The full grammar of the language is shown below.
+![Jack Language Grammar](/jack-language-complete-grammar.png)
 
 ## Requirements
 .NET 7
