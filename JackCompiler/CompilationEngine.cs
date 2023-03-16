@@ -295,7 +295,9 @@ namespace JackCompiler
             xw.WriteFullEndElement(); // end statements
         }
 
-        // Compiles a 'do' statement
+        /// <summary>
+        /// Compiles a 'do' statement
+        /// </summary>
         private void CompileDo()
         {
             xw.WriteStartElement("doStatement");
@@ -309,7 +311,9 @@ namespace JackCompiler
             xw.WriteEndElement(); // end doStatement
         }
 
-        // Compiles a 'let' statement
+        /// <summary>
+        /// Compiles a 'let' statement
+        /// </summary>
         private void CompileLet()
         {
             xw.WriteStartElement("letStatement");
@@ -356,7 +360,9 @@ namespace JackCompiler
             xw.WriteEndElement(); // end letStatement
         }
 
-        // Compiles a 'while' statement
+        /// <summary>
+        /// Compiles a 'while' statement
+        /// </summary>
         private void CompileWhile(int count)
         {
             xw.WriteStartElement("whileStatement");
@@ -375,7 +381,9 @@ namespace JackCompiler
             vw.WriteLabel($"WHILE_END{count}");
         }
 
-        // Compiles a 'return' statement
+        /// <summary>
+        /// Compiles a 'return' statement
+        /// </summary>
         private void CompileReturn()
         {
             xw.WriteStartElement("returnStatement");
