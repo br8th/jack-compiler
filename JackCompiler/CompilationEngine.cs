@@ -11,6 +11,10 @@ namespace JackCompiler
 
         private readonly string currentClassName;
         private static readonly string OS_MALLOC_FUNCTION = "Memory.alloc";
+        private static readonly string OS_STRING_FUNCTION = "String.new";
+
+        private static int IFS = -1;
+        private static int WHILES = -1;
 
         public CompilationEngine(JackTokenizer tokenizer, string outputFilePath)
         {
@@ -31,6 +35,9 @@ namespace JackCompiler
             this.currentClassName = Path.GetFileName(outputFilePath).Replace(".xml", "");
         }
 
+        /// <summary>
+        /// Compiles a complete class.
+        /// </summary>
         public void CompileClass()
         {
             st = new SymbolTable();
@@ -55,7 +62,9 @@ namespace JackCompiler
             xw.WriteString("\n");
         }
 
-        // Compiles a static/field declaration (classVarDec*)
+        /// <summary>
+        /// Compiles a static/field declaration (classVarDec*)
+        /// </summary>
         private void CompileClassVarDec()
         {
             if (tokenizer.currentToken != "static" &&
@@ -100,7 +109,9 @@ namespace JackCompiler
             CompileClassVarDec();
         }
 
-        // Compiles a complete method, function, or constructor
+        /// <summary>
+        /// Compiles a complete method, function, or constructor
+        /// </summary>
         private void CompileSubroutineDec()
         {
             // e.g. function void main()
@@ -113,6 +124,8 @@ namespace JackCompiler
             }
 
             st.StartSubroutine();
+            IFS = -1;
+            WHILES = -1;
 
             // function, constructor, method
             string subroutineType = tokenizer.currentToken;
@@ -182,8 +195,10 @@ namespace JackCompiler
             CompileSubroutineDec();
         }
 
-        // Compiles a (possibly empty) parameter list. Not including the enclosing ()
-        // int aX, int aY
+        /// <summary>
+        /// Compiles a (possibly empty) parameter list. Not including the enclosing ()
+        /// e.g. int aX, int aY
+        /// </summary>
         private void CompileParameterList()
         {
             string name, type;
@@ -208,7 +223,10 @@ namespace JackCompiler
             xw.WriteFullEndElement(); // end parameterList
         }
 
-        // Compiles a var declaration
+        /// <summary>
+        /// Compiles a var declaration
+        /// e.g. var int x;
+        /// </summary>
         private void CompileVarDec()
         {
             if (tokenizer.currentToken != "var")
@@ -242,8 +260,10 @@ namespace JackCompiler
             CompileVarDec();
         }
 
-        // Compiles a sequence of statements
-        private void CompileStatements(int numIfs = -1, int numWhiles = -1)
+        /// <summary>
+        /// Compiles a sequence of statements
+        /// </summary>
+        private void CompileStatements()
         {
             xw.WriteStartElement("statements");
 
@@ -256,10 +276,10 @@ namespace JackCompiler
                         CompileLet();
                         break;
                     case "if":
-                        CompileIf(++numIfs);
+                        CompileIf(++IFS);
                         break;
                     case "while":
-                        CompileWhile(++numWhiles);
+                        CompileWhile(++WHILES);
                         break;
                     case "do":
                         CompileDo();
@@ -295,44 +315,64 @@ namespace JackCompiler
             xw.WriteStartElement("letStatement");
             CompileKeyword("let");
             var varName = tokenizer.Identifier();
-            CompileIdentifier(tokenizer.currentToken);
+            CompileIdentifier(varName);
+            bool isAssignmentToArray = false;
 
-            // TODO: Are these handled elsewhere? array [ i + 1 ]
+            // We're compiling an array
             if (tokenizer.currentToken == "[")
             {
+                isAssignmentToArray = true;
                 CompileSymbol("[");
+                // push arr
                 CompileExpression();
+                vw.WritePush(st.KindOf(varName).GetVMSegment(), st.IndexOf(varName));
+                // push i
+                vw.WriteArithmetic(VMWriter.Command.ADD);
                 CompileSymbol("]");
+                // add
             }
+            // a[1]
+            //CompileTerm();
 
             CompileSymbol("=");
-
-            // compile expression to place value on the stack...
+            // 500
+            // This result will be stored result in temp 0
             CompileExpression();
-            // ... then assign it to variable above
-            var vmSegment = st.KindOf(varName).GetVMSegment();
-            vw.WritePop(vmSegment, st.IndexOf(varName));
+
+            if (isAssignmentToArray)
+            {
+                vw.WritePop(VMWriter.Segment.TEMP, 0);
+                vw.WritePop(VMWriter.Segment.POINTER, 1);
+                vw.WritePush(VMWriter.Segment.TEMP, 0);
+                vw.WritePop(VMWriter.Segment.THAT, 0);
+            } else
+            {
+                // ... then assign it to variable above
+                var vmSegment = st.KindOf(varName).GetVMSegment();
+                vw.WritePop(vmSegment, st.IndexOf(varName));
+            }
+
             CompileSymbol(";");
             xw.WriteEndElement(); // end letStatement
         }
 
         // Compiles a 'while' statement
-        private void CompileWhile(int numWhiles)
+        private void CompileWhile(int count)
         {
             xw.WriteStartElement("whileStatement");
             CompileKeyword("while");
             CompileSymbol("(");
-            vw.WriteLabel($"WHILE_EXPR{numWhiles}");
+            vw.WriteLabel($"WHILE_EXP{count}");
             CompileExpression();
             vw.WriteArithmetic(VMWriter.Command.NOT);
             CompileSymbol(")");
-            vw.WriteIf($"WHILE_END{numWhiles}");
+            vw.WriteIf($"WHILE_END{count}");
             CompileSymbol("{");
-            CompileStatements(numWhiles: numWhiles);
-            vw.WriteGoto($"WHILE_EXPR{numWhiles}");
+            CompileStatements();
+            vw.WriteGoto($"WHILE_EXP{count}");
             CompileSymbol("}");
             xw.WriteEndElement();
-            vw.WriteLabel($"WHILE_END{numWhiles}");
+            vw.WriteLabel($"WHILE_END{count}");
         }
 
         // Compiles a 'return' statement
@@ -357,36 +397,47 @@ namespace JackCompiler
             vw.WriteReturn();
         }
 
-        // Compiles an 'if' statement
-        // With a possible trailing 'else'
-        private void CompileIf(int numIfs)
+        /// <summary>
+        /// Compiles an 'if' statement, with a possible trailing 'else'
+        /// </summary>
+        /// <param name="count">counter used for recursive calls.</param>
+        /// <returns>Describe return value.</returns>
+        private void CompileIf(int count)
         {
             xw.WriteStartElement("ifStatement");
             CompileKeyword("if");
             CompileSymbol("(");
             CompileExpression();
             CompileSymbol(")");
-            vw.WriteArithmetic(VMWriter.Command.NOT);
-            vw.WriteIf($"IF_FALSE{numIfs}");
+            vw.WriteIf($"IF_TRUE{count}");
+            vw.WriteGoto($"IF_FALSE{count}");
             CompileSymbol("{");
-            CompileStatements(numIfs);
+            vw.WriteLabel($"IF_TRUE{count}");
+            CompileStatements();
             CompileSymbol("}");
-            vw.WriteLabel($"IF_FALSE{numIfs}");
 
             // If there's an else block...
             if (tokenizer.currentToken == "else")
             {
-                vw.WriteGoto($"IF_END{numIfs}");
+                vw.WriteGoto($"IF_END{count}");
+                vw.WriteLabel($"IF_FALSE{count}");
                 CompileKeyword("else");
                 CompileSymbol("{");
-                CompileStatements(numIfs);
+                CompileStatements();
                 CompileSymbol("}");
-                vw.WriteLabel($"IF_END{numIfs}");
+                vw.WriteLabel($"IF_END{count}");
+            } else
+            {
+                vw.WriteLabel($"IF_FALSE{count}");
             }
 
             xw.WriteEndElement(); // end ifStatement
         }
 
+        /// <summary>
+        /// Compiles an expression.
+        /// expr = term (op term)*
+        /// </summary>
         private void CompileExpression()
         {
             xw.WriteStartElement("expression");
@@ -397,10 +448,9 @@ namespace JackCompiler
                 tokenizer.Symbol().IsValidOp())
             {
                 op = tokenizer.Symbol();
-                // TODO: op?
                 CompileSymbol(tokenizer.currentToken);
                 CompileTerm();
-                //vw.WritePush(VMWriter.Segment.CONSTANT, tokenizer.IntVal());
+
                 if (op == '*')
                 {
                     vw.WriteCall("Math.multiply", 2);
@@ -415,13 +465,17 @@ namespace JackCompiler
 
                 var cmd = op.GetCommandFromOperand();
                 vw.WriteArithmetic(cmd);
-                // tokenizer.Advance();
             }
 
             xw.WriteEndElement(); // endExpression
         }
 
-        // TODO: Document
+        /// <summary>
+        /// If the current token is an identifier, the routine must resolve
+        /// it into a variable, arrayelement or subroutine call.
+        /// term = intConst | strConst | kwConst | varName | varName[expression]
+        ///         | subroutineCall | '('expression')' | unaryOp term
+        /// </summary>
         private void CompileTerm()
         {
             var tokenType = tokenizer.TokenType();
@@ -460,10 +514,23 @@ namespace JackCompiler
                     tokenizer.Advance();
                     break;
                 case JackTokenizer.Token.STRING_CONST:
+                    var str = tokenizer.StringVal();
                     xw.WriteStartElement("stringConstant");
-                    xw.WriteString(tokenizer.StringVal());
+                    xw.WriteString(str);
                     xw.WriteEndElement();
                     tokenizer.Advance();
+                    // call String constructor
+                    vw.WritePush(VMWriter.Segment.CONSTANT, str.Length);
+                    vw.WriteCall(OS_STRING_FUNCTION, 1);
+
+                    // initialize the returned object with characters bycalling appendchar
+                    foreach (char c in str)
+                    {
+                        vw.WritePush(VMWriter.Segment.CONSTANT, c);
+                        // account for 'this' already pushed onto stack by OS_STRING_FUNCTION
+                        vw.WriteCall("String.appendChar", 2);
+                    }
+
                     break;
                 // Todo: change from keyword to kwconstant?
                 case JackTokenizer.Token.KEYWORD:
@@ -486,8 +553,11 @@ namespace JackCompiler
                     // put -1 (1111 1111 1111 1111) on the stack
                     if (keyword == "true")
                     {
-                        vw.WritePush(VMWriter.Segment.CONSTANT, 1);
-                        vw.WriteArithmetic(VMWriter.Command.NEG);
+                        //vw.WritePush(VMWriter.Segment.CONSTANT, 1);
+                        //vw.WriteArithmetic(VMWriter.Command.NEG);
+
+                        vw.WritePush(VMWriter.Segment.CONSTANT, 0);
+                        vw.WriteArithmetic(VMWriter.Command.NOT);
                     }
 
                     if (keyword == "this")
@@ -522,6 +592,9 @@ namespace JackCompiler
 
                         CompileIdentifier(varName); // varName / square
 
+                        // TODO: move all here. clean up below
+                        //vw.WritePush(st.KindOf(varName).GetVMSegment(), st.IndexOf(varName));
+
                         // square.moveUp()
                         if (tokenizer.currentToken == ".")
                         {
@@ -537,21 +610,28 @@ namespace JackCompiler
                             var methodName = tokenizer.currentToken;
                             CompileIdentifier(methodName); // moveUp
                             CompileSymbol("(");
-                            var numArgs = CompileExpressionList() + 1; // account for already pushed 'this'
-                            CompileSymbol(")");
-
                             // TODO: move this up, after compiling arrays
                             // push the current 'this' variable onto the stack before calling function
                             vw.WritePush(st.KindOf(varName).GetVMSegment(), st.IndexOf(varName));
+                            var numArgs = CompileExpressionList() + 1; // account for already pushed 'this'
+                            CompileSymbol(")");
+
 
                             vw.WriteCall($"{st.TypeOf(varName)}.{methodName}", numArgs);
                         } else if (tokenizer.currentToken == "[")
-                        // TODO: compile array here
-                        // varName[expression]
+                        // RHS of an assignment. let x = a[i];
+                        // LHS is handled inside CompileLet
                         {
                             CompileSymbol("[");
                             CompileExpression();
+                            vw.WritePush(st.KindOf(varName).GetVMSegment(), st.IndexOf(varName));
+                            vw.WriteArithmetic(VMWriter.Command.ADD);
                             CompileSymbol("]");
+
+                            // put a[i] on stack
+                            vw.WritePop(VMWriter.Segment.POINTER, 1);
+                            vw.WritePush(VMWriter.Segment.THAT, 0);
+
                         } else
                         // just varName.
                         {
@@ -671,7 +751,8 @@ namespace JackCompiler
                 var kind = st.KindOf(identifier);
 
                 // e.g. Dog.Bark(); these are identifiers that do not need to be stored in the ST.
-                bool isClassOrSubroutineIdentifier = (kind == SymbolTable.Kind.CLASS || kind == SymbolTable.Kind.SUBROUTINE);
+                bool isClassOrSubroutineIdentifier = (kind == SymbolTable.Kind.CLASS
+                    || kind == SymbolTable.Kind.SUBROUTINE);
 
                 // Show the running index of the identifier
                 if (!isClassOrSubroutineIdentifier)
@@ -727,12 +808,12 @@ namespace JackCompiler
         {
             if (tokenizer.currentToken != symbol)
             {
-                throw new System.Exception($"Invalid token! Expected {symbol} got {tokenizer.currentToken}");
+                throw new Exception($"Invalid token! Expected {symbol} got {tokenizer.currentToken}");
             }
 
             if (tokenizer.TokenType() != JackTokenizer.Token.SYMBOL)
             {
-                throw new System.Exception($"{symbol} is not a valid symbol");
+                throw new Exception($"{symbol} is not a valid symbol");
             }
 
             xw.WriteStartElement("symbol");
@@ -747,12 +828,12 @@ namespace JackCompiler
         {
             if (tokenizer.currentToken != kw)
             {
-                throw new System.Exception($"Invalid token! Expected {kw} got {tokenizer.currentToken}");
+                throw new Exception($"Invalid token! Expected {kw} got {tokenizer.currentToken}");
             }
 
             if (tokenizer.TokenType() != JackTokenizer.Token.KEYWORD)
             {
-                throw new System.Exception($"{kw} is not a valid keyword");
+                throw new Exception($"{kw} is not a valid keyword");
             }
 
             xw.WriteStartElement("keyword");
