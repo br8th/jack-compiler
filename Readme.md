@@ -1,5 +1,5 @@
 # Jack VM Compiler
-Jack is a simple object-based language. It tastes a bit like Java and C++, with a simpler syntax and no support for inheritance. We already know Dog is Animal.
+Jack is a simple object-based language. It's somewhat similar to Java and C++, with a simpler syntax and no support for inheritance. You already know Dog is Animal.
 
 The language lends itself nicely to interactive games like Tetris, Snake, Pong, Space
 Invaders, and similar classics. You can find a list of cool stuff built with jack [here](https://www.nand2tetris.org/copy-of-talks).
